@@ -45,6 +45,18 @@
   --breakpoint-2xl: 86rem;
   --font-mono: var(--font-geist-mono);
   --font-sans: var(--font-geist-sans);
+
+  /* Landing page marquee */
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @layer utilities {
@@ -93,8 +105,8 @@
   --card-foreground: oklch(14.5% 0 0deg);
   --popover: oklch(100% 0 0deg);
   --popover-foreground: oklch(14.5% 0 0deg);
-  --primary: oklch(20.5% 0 0deg);
-  --primary-foreground: oklch(98.5% 0 0deg);
+  --primary: oklch(79% 0.17 70deg); /* brand amber (was hsl 38 100% 50%) */
+  --primary-foreground: oklch(20.5% 0 0deg); /* dark text on amber */
   --secondary: oklch(97% 0 0deg);
   --secondary-foreground: oklch(20.5% 0 0deg);
   --muted: oklch(97% 0 0deg);
@@ -123,6 +135,11 @@
   --success: oklch(78% 0.08 200deg);
   --warning: oklch(89% 0.1 75deg);
   --error: oklch(75% 0.15 25deg);
+
+  /* Landing page tokens */
+  --ink: oklch(20.5% 0 0deg);
+  --ink-foreground: oklch(98.5% 0 0deg);
+  --surface: oklch(97% 0.005 90deg);
 }
 
 [data-theme='dark'] {
@@ -203,6 +220,11 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
+
+  /* Landing page colors */
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-surface: var(--surface);
 }
 
 @layer base {
