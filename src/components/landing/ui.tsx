@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { ArrowUpRight, Star } from 'lucide-react'
 
-export const container = 'mx-auto max-w-[1200px] px-6'
+export const container = 'mx-auto max-w-300 px-6'
 
 export const Eyebrow = ({ children }: { children: ReactNode }) => (
   <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">

@@ -1,12 +1,14 @@
-import { Search } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
 import type { Landing } from '@/payload-types'
 import { CmsImage } from './CmsImage'
-import { HeroNav } from './HeroNav'
-import { Avatars, Btn, container, Stars } from './ui'
+import { Btn, container } from './ui'
 
 export function Hero({ data }: { data: Landing['hero'] }) {
   return (
-    <section id="home" className="relative h-190 overflow-hidden rounded-b-[40px]">
+    <section
+      id="home"
+      className="relative min-h-170 h-[95svh] max-h-225 overflow-hidden rounded-b-[28px] sm:rounded-b-[40px]"
+    >
       <CmsImage
         media={data.image}
         alt="Construction worker on site"
@@ -15,24 +17,44 @@ export function Hero({ data }: { data: Landing['hero'] }) {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-ink/40" />
-      <div className={`${container} relative pt-6`}>
-        <HeroNav />
-        <h1 className="mt-24 max-w-xl text-7xl font-bold leading-[1.05] text-ink-foreground">
-          {data.heading}
+      <div
+        className={`${container} relative flex flex-col justify-center h-full pb-6 pt-12 md:pt-6`}
+      >
+        <h1 className="max-w-2xl text-6xl font-bold leading-[1.05] text-ink-foreground md:text-7xl">
+          {data.heading ? (
+            data.heading
+          ) : (
+            <>
+              <span className="block text-[2.5rem] leading-4 md:text-6xl md:leading-none">
+                Reliable Capa<span className="text-primary">city</span>,
+              </span>
+              <span className="text-[2.5rem] md:text-6xl md:leading-none">
+                Quality <span className="text-primary">Con</span>struction
+              </span>
+            </>
+          )}
         </h1>
-        <div className="mt-40 flex items-end justify-between text-ink-foreground">
+
+        <div className="mt-4 flex flex-col items-start justify-between text-ink-foreground md:flex-row md:items-end md:gap-0">
           <div>
-            <Btn href="#about">Explore More</Btn>
             {data.subheading && (
-              <p className="mt-4 max-w-xs text-sm opacity-80">{data.subheading}</p>
+              <p className="mt-2 mb-6 max-w-xs text-sm opacity-80">{data.subheading}</p>
             )}
+            <Btn href="/#services">Explore More</Btn>
           </div>
-          <div className="flex items-center gap-4">
-            <div>
-              <p className="text-sm">5.0 Rating</p>
-              <Stars />
+
+          <div className="mt-8 flex items-center gap-2.5 text-ink-foreground/80 self-start md:mt-12 md:self-auto md:rounded-full md:border md:border-white/10 md:bg-ink/30 md:px-4 md:py-2 md:backdrop-blur-md">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary md:h-8 md:w-8 md:bg-primary md:text-ink">
+              <ShieldCheck className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
             </div>
-            <Avatars />
+            <div>
+              <p className="text-xs font-medium text-ink-foreground sm:text-sm md:font-semibold">
+                Fully Licensed & Insured
+              </p>
+              <p className="hidden text-xs text-ink-foreground/70 md:block">
+                Safety & Compliance Verified
+              </p>
+            </div>
           </div>
         </div>
       </div>

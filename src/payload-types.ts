@@ -1733,7 +1733,10 @@ export interface Footer {
 export interface Landing {
   id: number;
   hero: {
-    heading: string;
+    /**
+     * Leave blank to use the default static heading.
+     */
+    heading?: string | null;
     subheading?: string | null;
     image: number | Media;
   };

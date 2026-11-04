@@ -26,8 +26,10 @@ export const Landing: GlobalConfig = {
             {
               name: 'heading',
               type: 'text',
-              required: true,
               defaultValue: 'Your Trusted Construction Partner',
+              admin: {
+                description: 'Leave blank to use the default static heading.',
+              },
             },
             {
               name: 'subheading',
