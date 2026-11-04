@@ -12,23 +12,38 @@ export const Eyebrow = ({ children }: { children: ReactNode }) => (
 )
 
 const btnCls =
-  'inline-flex items-center gap-2 rounded-full bg-primary py-2 pl-5 pr-2 text-sm font-semibold text-primary-foreground'
+  'inline-flex items-center gap-2 rounded-full bg-primary py-2 pl-5 text-sm font-semibold text-primary-foreground'
 
-export function Btn({ children = 'Get Started', href }: { children?: ReactNode; href?: string }) {
+export function Btn({
+  children = 'Get Started',
+  href,
+  onClick,
+  icon,
+}: {
+  children?: ReactNode
+  href?: string
+  onClick?: () => void
+  icon?: ReactNode
+}) {
+  const resolvedIcon = icon === undefined ? <ArrowUpRight size={14} /> : icon
+  const hasIcon = resolvedIcon !== null && resolvedIcon !== false
+  const className = `${btnCls} ${hasIcon ? 'pr-2' : 'pr-5'}`
   const inner = (
     <>
       {children}
-      <span className="grid h-7 w-7 place-items-center rounded-full bg-ink text-ink-foreground">
-        <ArrowUpRight size={14} />
-      </span>
+      {hasIcon && (
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-ink text-ink-foreground">
+          {resolvedIcon}
+        </span>
+      )}
     </>
   )
   return href ? (
-    <Link href={href} className={btnCls}>
+    <Link href={href} className={className} onClick={onClick}>
       {inner}
     </Link>
   ) : (
-    <button type="button" className={btnCls}>
+    <button type="button" className={className} onClick={onClick}>
       {inner}
     </button>
   )
