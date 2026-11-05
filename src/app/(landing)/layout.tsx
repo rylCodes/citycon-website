@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GlobalHeader } from '@/components/GlobalHeader'
 import '../(frontend)/globals.css'
+import { GlobalFooter } from '@/components/GlobalFooter'
 
 export const metadata: Metadata = {
   title: 'Citycon — Your Trusted Construction Partner',
@@ -20,6 +21,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
       <body>
         <GlobalHeader />
         {children}
+        <GlobalFooter />
       </body>
     </html>
   )

@@ -4,7 +4,6 @@ import { About } from '@/components/landing/About'
 import { Contact } from '@/components/landing/Contact'
 import { Faq } from '@/components/landing/Faq'
 import { Hero } from '@/components/landing/Hero'
-import { LandingFooter } from '@/components/landing/LandingFooter'
 import { Logos } from '@/components/landing/Logos'
 import { Marquee } from '@/components/landing/Marquee'
 import { News } from '@/components/landing/News'
@@ -40,7 +39,6 @@ export default async function HomePage() {
       <Contact />
       <Marquee />
       <News />
-      <LandingFooter />
     </div>
   )
 }
